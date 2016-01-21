@@ -11,41 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121191514) do
+ActiveRecord::Schema.define(version: 20160121215858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answer_choices", force: :cascade do |t|
-    t.string  "text"
-    t.integer "question_id"
+    t.string   "text"
+    t.integer  "question_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "answer_choices", ["question_id"], name: "index_answer_choices_on_question_id", using: :btree
 
   create_table "polls", force: :cascade do |t|
-    t.string  "title"
-    t.integer "author_id"
+    t.string   "title"
+    t.integer  "author_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "polls", ["author_id"], name: "index_polls_on_author_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
-    t.string  "text"
-    t.integer "poll_id"
+    t.string   "text"
+    t.integer  "poll_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "questions", ["poll_id"], name: "index_questions_on_poll_id", using: :btree
 
   create_table "responses", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "answer_id"
+    t.integer  "user_id"
+    t.integer  "answer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "responses", ["answer_id"], name: "index_responses_on_answer_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string "user_name"
+    t.string   "user_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["user_name"], name: "index_users_on_user_name", unique: true, using: :btree

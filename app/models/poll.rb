@@ -2,9 +2,11 @@
 #
 # Table name: polls
 #
-#  id        :integer          not null, primary key
-#  title     :string
-#  author_id :integer
+#  id         :integer          not null, primary key
+#  title      :string
+#  author_id  :integer
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 class Poll < ActiveRecord::Base

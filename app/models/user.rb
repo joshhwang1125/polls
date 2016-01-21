@@ -2,8 +2,10 @@
 #
 # Table name: users
 #
-#  id        :integer          not null, primary key
-#  user_name :string
+#  id         :integer          not null, primary key
+#  user_name  :string
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 class User < ActiveRecord::Base

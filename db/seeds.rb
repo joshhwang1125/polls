@@ -20,10 +20,10 @@ Question.all.each do |question|
   rand(2..10).times{ AnswerChoice.create!(question_id: question.id, text: Faker::Lorem.sentence(5)) }
 end
 
-30.times do
+150.times do
   user_id = rand(1..20)
   Poll.all[rand(0...20)].questions.each do |question|
-    answer_id = question.answers.take.id
+    answer_id = question.answers[rand(0...question.answers.count)].id
     Response.create(user_id: user_id, answer_id: answer_id)
   end
 end
